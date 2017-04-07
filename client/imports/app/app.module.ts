@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
+import { HttpModule, JsonpModule } from '@angular/http';
 import { DemoComponent } from "./demo/demo.component";
 import { DemoDataService } from "./demo/demo-data.service";
 
@@ -20,7 +21,9 @@ import { DemoDataService } from "./demo/demo-data.service";
   ],
   // Modules
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    JsonpModule
   ],
   // Main Component
   bootstrap: [ AppComponent ]
