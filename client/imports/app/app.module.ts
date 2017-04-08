@@ -4,6 +4,7 @@ import { AppComponent } from "./app.component";
 import { HttpModule, JsonpModule } from '@angular/http';
 import { DemoComponent } from "./demo/demo.component";
 import { DemoDataService } from "./demo/demo-data.service";
+import { AccountsModule } from 'angular2-meteor-accounts-ui';
 
 @NgModule({
   // Components, Pipes, Directive
@@ -23,7 +24,8 @@ import { DemoDataService } from "./demo/demo-data.service";
   imports: [
     BrowserModule,
     HttpModule,
-    JsonpModule
+    JsonpModule,
+    AccountsModule
   ],
   // Main Component
   bootstrap: [ AppComponent ]
