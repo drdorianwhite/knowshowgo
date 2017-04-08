@@ -1,4 +1,4 @@
 import { MongoObservable } from "meteor-rxjs";
-import {Language} from "../models/language.model";
+import {User} from "../models/user.model";
 
-export const LanguageCollection = new MongoObservable.Collection<Language>("languages");
+export const UserCollection = new MongoObservable.Collection<User>("users");

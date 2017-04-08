@@ -1,4 +1,3 @@
-export interface Demo {
-  name: string;
-  age: number;
+export interface Language {
+  englishName: string;
 }
