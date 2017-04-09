@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Category } from "../../../../both/models/category.model";
+import { CategoryProperty } from "../../../../both/models/category-property.model";
 import { Http, Response, RequestOptions, Headers, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -8,45 +8,45 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserDataService {
-  private categoriesURL: string = "http://localhost:8000/api/categories";
+  private categoryPropertiesURL: string = "http://localhost:8000/api/categoryproperties";
 
 
   constructor(private http: Http) {}
 
- public readAll(): Observable<Category[]> {
+ public readAll(): Observable<CategoryProperty[]> {
     let searchParams = new URLSearchParams();
     
     let options = new RequestOptions({
           search: searchParams
       });
     
-    return this.http.get(this.categoriesURL, options)
+    return this.http.get(this.categoryPropertiesURL, options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
 
-  public read(id: number): Observable<Category> {
-    let url = this.categoriesURL + "/" + id;
+  public read(id: number): Observable<CategoryProperty> {
+    let url = this.categoryPropertiesURL + "/" + id;
     
     return this.http.get(url)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
 
-  public create(spelling: string, languageId: Mongo.ObjectID): Observable<Category> {
+  public create(data: CategoryProperty): Observable<CategoryProperty> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post(this.categoriesURL, { name }, options)
+    return this.http.post(this.categoryPropertiesURL, JSON.stringify(data), options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
 
-  public update(id: number, newVersion: Category): Observable<Category> {
+  public update(id: number, data: CategoryProperty): Observable<CategoryProperty> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.put(this.categoriesURL, JSON.stringify(newVersion), options)
+    return this.http.put(this.categoryPropertiesURL, JSON.stringify(data), options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
