@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { DemoDataService } from "./demo-data.service";
-import { Demo } from "../../../../both/models/demo.model";
-import template from "./demo.component.html";
-import style from "./demo.component.scss";
+import { DemoDataService } from "../../ksgapi-services/category-property.service";
+import { CategoryProperty } from "../../../../../both/models/category-property.model";
+import template from "./category-properties.component.html";
+import style from "./category-properties.component.scss";
 
 @Component({
   selector: "demo",
