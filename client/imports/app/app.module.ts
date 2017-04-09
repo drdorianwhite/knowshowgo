@@ -2,15 +2,15 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { HttpModule, JsonpModule } from '@angular/http';
-import { DemoComponent } from "./demo/demo.component";
-import { DemoDataService } from "./demo/demo-data.service";
+import { WordComponent } from "./ksg-components/word/word.component";
+import { LanguageDataService } from "./ksgapi-services/language.service";
 import { AccountsModule } from 'angular2-meteor-accounts-ui';
 
 @NgModule({
   // Components, Pipes, Directive
   declarations: [
     AppComponent,
-    DemoComponent
+    WordComponent
   ],
   // Entry Components
   entryComponents: [
@@ -18,7 +18,7 @@ import { AccountsModule } from 'angular2-meteor-accounts-ui';
   ],
   // Providers
   providers: [
-    DemoDataService
+    LanguageDataService
   ],
   // Modules
   imports: [

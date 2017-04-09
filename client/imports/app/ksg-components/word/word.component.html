@@ -1,0 +1,8 @@
+<h2>{{greeting}}</h2>
+
+This is the available data:
+<ul>
+    <li *ngFor="let language of languages | async">
+        {{language.englishName}} ({{language._id}})
+    </li>
+</ul>
