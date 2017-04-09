@@ -1,59 +1,37 @@
 import {Mongo} from "meteor/mongo";
 
+interface ItemMetaDatum {
+    name: string;
+    valueType: string;
+    valString: string;
+    valNumber: number;
+    valDateTime: Date;
+    valCategory: Mongo.ObjectID;
+    valTopic: Mongo.ObjectID;
+    valUser: Mongo.ObjectID;
+    valURL: string;
+    valGeodata: any;
+}
+
+interface UserTopicListItem {
+    itemid: Mongo.ObjectID;
+    metadata: ItemMetaDatum[];
+}
+
+interface UserTopicList {
+    name: string;
+    items: UserTopicListItem[];
+}
 
 export interface User {
-    email: String,
-    password: String,
-    joinDate: Date,
-    userName: String,
-    firstName: String,
-    lastName: String,
-    mainPhotoURL: String,
-    role: {
-        type: String,
-        enum: [
-            "nonmember",
-            "banned",
-            "basic",
-            "level-1",
-            "level0",
-            "level1",
-            "level2",
-            "level3",
-            "level4",
-            "level5",
-            "moderator",
-            "admin",
-            "superuser"
-        ],
-    },
-    topicLists: [{
-      name: String,
-      items: [{
-        itemid: Mongo.ObjectID,
-        metadata: [{
-            name: String,
-            valueType: {
-                type: String,
-                enum: [
-                    "String",
-                    "Number",
-                    "Date",
-                    "Category",
-                    "Topic",
-                    "User",
-                    "URL",
-                    "Geodata"
-                ]
-            },
-            valString: String,
-            valNumber: Number,
-            valDateTime: Date,
-            valCategory: Mongo.ObjectID,
-            valTopic: Mongo.ObjectID,
-            valUser: Mongo.ObjectID,
-            valURL: String,
-            valGeodata: any
-        }]
-    }]
+    _id: Mongo.ObjectID;
+    email: string;
+    password: string;
+    joinDate: Date;
+    userName: string;
+    firstName: string;
+    lastName: string;
+    mainPhotoURL: string;
+    role: string;
+    topicLists: UserTopicList[];
 }

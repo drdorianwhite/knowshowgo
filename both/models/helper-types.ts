@@ -44,7 +44,8 @@ export interface PropertyValue { //holds single value or if array then multiple 
     valueNumber: Number;
     valueDate: Date;
     valueURL: String;
-    valueObject: Mongo.ObjectID;
+    valueTopic: Mongo.ObjectID;
+    valueCategory: Mongo.ObjectID;
     valueGeodata: any;
     valueRating: Vote[];
     creationInfo: PostInfo;

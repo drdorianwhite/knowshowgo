@@ -38,11 +38,13 @@ export class WordDataService {
                     .catch(this.handleError);
   }
 
-  public create(spelling: string, languageId: Mongo.ObjectID): Observable<Word> {
+  public create(data: Word): Observable<Word> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post(this.wordsURL, { name }, options)
+    delete data._id;
+
+    return this.http.post(this.wordsURL, JSON.stringify(data), options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

@@ -5,7 +5,8 @@ import {Vote, PostInfo, PostedName, PostedParent, PostedTopicType, PostedTopicPr
 import {Category} from "../models/category.model";
 
 export interface Topic {
-  names: PostedName[];
+    _id: Mongo.ObjectID;
+    names: PostedName[];
     is: PostedTopicType[];
     has: PostedTopicProperty[];
     topicApproval: Vote[];

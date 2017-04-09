@@ -6,6 +6,7 @@ import {Vote, PostInfo, PostedName} from "../models/helper-types";
 
 
 export interface CategoryProperty {
+    _id: Mongo.ObjectID;
     names: PostedName[];
     dataType: string;
     isArray: Boolean;

@@ -36,13 +36,15 @@ export class UserDataService {
   public create(data: CategoryProperty): Observable<CategoryProperty> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-
+    
+    delete data._id;
+    
     return this.http.post(this.categoryPropertiesURL, JSON.stringify(data), options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
 
-  public update(id: number, data: CategoryProperty): Observable<CategoryProperty> {
+  public update(data: CategoryProperty): Observable<CategoryProperty> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 

@@ -37,20 +37,22 @@ export class UserDataService {
                     .catch(this.handleError);
   }
 
-  public create(spelling: string, languageId: Mongo.ObjectID): Observable<User> {
+  public create(data: User): Observable<User> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.post(this.usersURL, { name }, options)
+    delete data._id;
+
+    return this.http.post(this.usersURL, JSON.stringify(data), options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
 
-  public update(id: number, newVersion: User): Observable<User> {
+  public update(data: User): Observable<User> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.put(this.usersURL, { name }, options)
+    return this.http.put(this.usersURL, JSON.stringify(data), options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

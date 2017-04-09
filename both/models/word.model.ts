@@ -1,7 +1,7 @@
 import {Mongo} from "meteor/mongo";
 import {User} from "../models/user.model";
 import {Language} from "../models/language.model";
-import {Vote} from "../models/vote.model";
+import {Vote} from "../models/helper-types";
 
 export interface Word {
     _id: Mongo.ObjectID;

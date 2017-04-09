@@ -5,6 +5,7 @@ import {Vote, PostInfo, PostedName, PostedParent, PostedCategoryProperty} from "
 
 
 export interface Category {
+    _id: Mongo.ObjectID;
     names: PostedName[];
     parents: PostedParent[];
     properties: PostedCategoryProperty[];
