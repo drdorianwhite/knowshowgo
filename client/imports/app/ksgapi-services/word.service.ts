@@ -25,9 +25,12 @@ export class WordDataService {
           search: searchParams
       });
     
-    return this.http.get(this.wordsURL, options)
+    var obj = this.http.get(this.wordsURL, options)
                     .map(this.extractData)
                     .catch(this.handleError);
+  
+    console.log(obj);
+    return obj;
   }
 
   public read(id: number): Observable<Word> {
@@ -50,8 +53,7 @@ export class WordDataService {
   }
 
   private extractData(res: Response) {
-    let body = res.json();
-    return body.data || { };
+    return res.json() || [];
   }
 
   private handleError (error: Response | any) {

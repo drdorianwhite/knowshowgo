@@ -24,9 +24,11 @@ export class LanguageDataService {
           search: searchParams
       });
     
-    return this.http.get(this.languagesURL, options)
+    let ret = this.http.get(this.languagesURL/*, options*/)
                     .map(this.extractData)
                     .catch(this.handleError);
+    console.log(ret);
+    return ret;
   }
 
   public read(id: number): Observable<Language> {
@@ -47,8 +49,7 @@ export class LanguageDataService {
   }
 
   private extractData(res: Response) {
-    let body = res.json();
-    return body.data || { };
+    return res.json() || [];
   }
 
   private handleError (error: Response | any) {

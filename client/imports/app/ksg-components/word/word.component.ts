@@ -19,6 +19,8 @@ export class WordComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.languages = this.languageDataService.readAll();//zone();
+    console.log("calling readAll");
+    
+    this.languages = this.languageDataService.readAll().zone();
   }
 }
