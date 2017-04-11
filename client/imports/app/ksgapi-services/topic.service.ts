@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 
 @Injectable()
-export class UserDataService {
+export class TopicDataService {
   private topicsURL: string = "http://localhost:8000/api/topics";
 
 

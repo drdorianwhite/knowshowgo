@@ -29,7 +29,6 @@ export class WordDataService {
                     .map(this.extractData)
                     .catch(this.handleError);
   
-    console.log(obj);
     return obj;
   }
 

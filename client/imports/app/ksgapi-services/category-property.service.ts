@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 
 @Injectable()
-export class UserDataService {
+export class CategoryPropertyDataService {
   private categoryPropertiesURL: string = "http://localhost:8000/api/categoryproperties";
 
 

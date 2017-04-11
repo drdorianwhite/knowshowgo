@@ -1,0 +1,10 @@
+<div>
+    <div>
+        <form (ngSubmit)="onSubmit()" #thisForm="ngForm">
+            <label>Spelling:</label>
+            <ng2-completer [(ngModel)]="searchString" [inputName]="spelling" [datasource]="dataService" [minSearchLength]="3" (selected)="selectedItem($event)">
+            </ng2-completer>
+            <button type="submit" class="btn btn-success" [disabled]="!thisForm.form.valid">Add New Word</button>
+        </form>
+    </div>
+</div>
