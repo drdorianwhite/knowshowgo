@@ -25,7 +25,7 @@ export class TopicDataService {
                     .catch(this.handleError);
   }
 
-  public read(id: number): Observable<Topic> {
+  public read(id: string): Observable<Topic> {
     let url = this.topicsURL + "/" + id;
     
     return this.http.get(url)

@@ -31,7 +31,7 @@ export class LanguageDataService {
     return ret;
   }
 
-  public read(id: number): Observable<Language> {
+  public read(id: string): Observable<Language> {
     let url = this.languagesURL + "/" + id;
     
     return this.http.get(url)

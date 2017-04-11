@@ -25,7 +25,7 @@ export class CategoryDataService {
                     .catch(this.handleError);
   }
 
-  public read(id: number): Observable<Category> {
+  public read(id: string): Observable<Category> {
     let url = this.categoriesURL + "/" + id;
     
     return this.http.get(url)

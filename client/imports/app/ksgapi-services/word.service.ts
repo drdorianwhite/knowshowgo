@@ -32,7 +32,7 @@ export class WordDataService {
     return obj;
   }
 
-  public read(id: number): Observable<Word> {
+  public read(id: string): Observable<Word> {
     let url = this.wordsURL + "/" + id;
     
     return this.http.get(url)
