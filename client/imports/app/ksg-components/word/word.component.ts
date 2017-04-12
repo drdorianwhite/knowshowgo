@@ -11,14 +11,13 @@ import style from "./word.component.scss";
   styles: [ style ]
 })
 export class WordComponent implements OnInit {
-  greeting: string;
-  languages: Observable<Word[]>;
+  data: Word;
 
-  constructor(private languageDataService: WordDataService) {
-    this.greeting = "Hello Demo Component!";
+  constructor(private WordDataService: WordDataService) {
+    
   }
 
   ngOnInit() {    
-    this.languages = this.languageDataService.readAll().zone();
+    //this.languages = this.languageDataService.readAll().zone();
   }
 }
