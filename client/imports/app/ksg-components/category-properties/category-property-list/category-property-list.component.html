@@ -1,0 +1,9 @@
+<h2>{{greeting}}</h2>
+
+This is the available data:
+<ul>
+    <li *ngFor="let categoryProperty of categoryProperties | async">
+        <cateogry-property [id]=categoryProperty._id></cateogry-property>
+    </li>
+    <new-category-property></new-category-property>
+</ul>
