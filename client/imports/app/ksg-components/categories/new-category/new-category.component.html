@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="contents" [ngStyle]="{'background-image': 'url(' + photo + ')'}">
+        <div class="names">
+            <label for="name">Name:</label>
+            <word-list [data]="data.names"></word-list>
+        </div>
+        <div class="parents">
+            <label for="parent">Parent:</label>
+            <ng2-completer [(ngModel)]="parentSearchString" [inputName]="parent" [datasource]="dataService" [minSearchLength]="3" (selected)="selectedItem($event)">
+            </ng2-completer>
+            <category-list [data]="data.parents"></category-list>
+        </div>
+        <div class="properties">
+            <label for="properties">Properties:</label>
+            <category-property-list [data]="data.categoryProperties"></category-property-list>
+        </div>
+        <div class="approval">
+        </div>
+        <category-menu [id]="data._id"></category-menu>
+    </div>
+</div>

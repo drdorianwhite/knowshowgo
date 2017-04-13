@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { WordDataService } from "../../ksgapi-services/word.service";
-import { Word } from "../../../../../both/models/word.model";
+import { WordDataService } from "../../../ksgapi-services/word.service";
+import { Word } from "../../../../../../both/models/word.model";
 import template from "./word.component.html";
 import style from "./word.component.scss";
 

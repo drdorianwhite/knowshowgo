@@ -8,22 +8,27 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class CategoryPropertyDataService {
-  private categoryPropertiesURL: string = "http://localhost:8000/api/categoryproperties";
-
+  public static categoryPropertiesURL: string = "http://localhost:8000/api/categoryproperties";
 
   constructor(private http: Http) {}
 
- public readAll(): Observable<CategoryProperty[]> {
+ public readAll(havingProperties:Object): Observable<CategoryProperty[]> {
     let searchParams = new URLSearchParams();
     
+    if(havingProperties) {
+      for(let property in havingProperties) {
+        searchParams.append(property.toString(), havingProperties[property]);
+      } 
+    }
+
     let options = new RequestOptions({
           search: searchParams
-      });
+    });
     
     return this.http.get(this.categoryPropertiesURL, options)
                     .map(this.extractData)
                     .catch(this.handleError);
-  }
+  
 
   public read(id: string): Observable<CategoryProperty> {
     let url = this.categoryPropertiesURL + "/" + id;

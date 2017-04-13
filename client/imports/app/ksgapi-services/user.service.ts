@@ -13,16 +13,18 @@ export class UserDataService {
 
   constructor(private http: Http) {}
 
- public readAll(startingWith?: string): Observable<User[]> {
+ public readAll(havingProperties:Object): Observable<User[]> {
     let searchParams = new URLSearchParams();
 
-    if(startingWith) {
-      searchParams.append("startsWith", startingWith);
+    if(havingProperties) {
+      for(let property in havingProperties) {
+        searchParams.append(property.toString(), havingProperties[property]);
+      } 
     }
     
     let options = new RequestOptions({
           search: searchParams
-      });
+    });
     
     return this.http.get(this.usersURL, options)
                     .map(this.extractData)

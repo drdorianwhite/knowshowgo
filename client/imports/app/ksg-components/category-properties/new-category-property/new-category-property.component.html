@@ -1,9 +1,10 @@
 <div>
     <div>
         <form (ngSubmit)="onSubmit()" #thisForm="ngForm">
-            <label>Name:</label>
+            <label for="name">Name:</label>
             <ng2-completer [(ngModel)]="searchString" [inputName]="name" [datasource]="dataService" [minSearchLength]="3" (selected)="selectedItem($event)">
             </ng2-completer>
+            <word-list [data]="data.names"></word-list>
             <select name="dataType">
                 <option>String</option>
                 <option>Number</option>

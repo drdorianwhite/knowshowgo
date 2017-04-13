@@ -13,12 +13,18 @@ export class CategoryDataService {
 
   constructor(private http: Http) {}
 
- public readAll(): Observable<Category[]> {
+ public readAll(havingProperties:Object): Observable<Category[]> {
     let searchParams = new URLSearchParams();
     
+    if(havingProperties) {
+      for(let property in havingProperties) {
+        searchParams.append(property.toString(), havingProperties[property]);
+      } 
+    }
+
     let options = new RequestOptions({
           search: searchParams
-      });
+    });
     
     return this.http.get(this.categoriesURL, options)
                     .map(this.extractData)

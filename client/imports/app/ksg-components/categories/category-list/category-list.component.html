@@ -1,0 +1,9 @@
+<h2>{{greeting}}</h2>
+
+This is the available data:
+<ul>
+    <li *ngFor="let category of category | async">
+        <cateogry [(ngModel)]="category" [id]="category._id"></cateogry>
+    </li>
+    <button>Add New Category</button>
+</ul>

@@ -2,9 +2,15 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { HttpModule, JsonpModule } from '@angular/http';
-import { WordComponent } from "./ksg-components/word/word.component";
-import { AddWordComponent } from "./ksg-components/add-word/add-word.component";
-import { WordListComponent } from "./ksg-components/word-list/word-list.component";
+import { WordComponent } from "./ksg-components/words/word/word.component";
+import { NewWordComponent } from "./ksg-components/words/new-word/new-word.component";
+import { WordListComponent } from "./ksg-components/words/word-list/word-list.component";
+import { CategoryPropertyComponent } from "./ksg-components/category-properties/category-property/category-property.component";
+import { NewCategoryPropertyComponent } from "./ksg-components/category-properties/new-category-property/new-category-property.component";
+import { CategoryPropertyListComponent } from "./ksg-components/category-properties/category-property-list/category-property-list.component";
+import { CategoryComponent } from "./ksg-components/categories/category/category.component";
+import { NewCategoryComponent } from "./ksg-components/categories/new-category/new-category.component";
+import { CategoryListComponent } from "./ksg-components/categories/category-list/category-list.component";
 import { Ng2CompleterModule } from "ng2-completer";
 import { LanguageDataService } from "./ksgapi-services/language.service";
 import { WordDataService } from "./ksgapi-services/word.service";
@@ -20,7 +26,13 @@ import { AccountsModule } from 'angular2-meteor-accounts-ui';
     AppComponent,
     WordComponent,
     WordListComponent,
-    AddWordComponent
+    NewWordComponent,
+    CategoryPropertyComponent,
+    NewCategoryPropertyComponent,
+    CategoryPropertyListComponent,
+    CategoryComponent,
+    NewCategoryComponent,
+    CategoryListComponent
   ],
   // Entry Components
   entryComponents: [

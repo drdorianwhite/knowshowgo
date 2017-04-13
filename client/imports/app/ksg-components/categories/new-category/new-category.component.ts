@@ -1,36 +1,41 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { CategoryPropertyDataService } from "../../../ksgapi-services/category-property.service";
-import { CategoryProperty } from "../../../../../../both/models/category-property.model";
-import template from "./word.component.html";
-import style from "./word.component.scss";
+import { CategoryDataService } from "../../../ksgapi-services/category.service";
+import { Category } from "../../../../../../both/models/category.model";
+import template from "./new-category.component.html";
+import style from "./new-category.component.scss";
 import { CompleterService, CompleterData, CompleterItem } from 'ng2-completer';
 
 @Component({
-  selector: "new-word",
+  selector: "new-category",
   template,
   styles: [ style ]
 })
-export class NewWordComponent implements OnInit {
-  private searchData: Observable<CategoryProperty>;
+export class NewCategoryComponent implements OnInit {
+  private data: Category;
+  private searchData: Observable<Category[]>;
   private resultsFetched: Boolean;
   private dataService: CompleterData;
   private searchString: string;
-  constructor(private categoryPropertyDataService: CategoryPropertyDataService, private completerService: CompleterService) {
+  constructor(private categoryDataService: CategoryDataService, private completerService: CompleterService) {
     this.resultsFetched = false;
     // initialize with observable
     this.dataService = this.completerService.local(this.searchData , 'spelling',  'spelling');
 
   }
 
-  lookupWords(event){
+  lookup(event){
      if(this.searchString && this.searchString.length > 2 && !this.resultsFetched){
-          this.searchData = this.categoryPropertyDataService.readAll(this.searchString);
+          this.searchData = this.categoryDataService.readAll({"namesLike":this.searchString});
           this.resultsFetched = true;
         }else{
            // reset "resultsfetched" when input is less than 3 chars.
             this.resultsFetched = false;
      }
+  }
+
+  create() {
+    this.categoryDataService.create(this.data);
   }
 
   selectedItem(selected : CompleterItem) {

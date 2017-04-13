@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="contents" [ngStyle]="{'background-image': 'url(' + photo + ')'}">
+        <div class="names">
+            <word [id]="data.names[0].word"></word>
+            <word-list [(ngModel)]="data.names"></word-list>
+        </div>
+        <div class="parents">
+            <category-list [(ngModel)]="data.parents"></category-list>
+        </div>
+        <div class="properties">
+            <category-property-list [(ngModel)]="data.categoryProperties"></category-property-list>
+        </div>
+        <div class="approval">
+        </div>
+        <category-menu [id]="data._id"></category-menu>
+    </div>
+    <button (click)="update()"></button>
+</div>

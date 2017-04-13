@@ -14,16 +14,18 @@ export class WordDataService {
 
   constructor(private http: Http) {}
 
-  public readAll(startingWith?: string): Observable<Word[]> {
+  public readAll(havingProperties:Object): Observable<Word[]> {
     let searchParams = new URLSearchParams();
 
-    if(startingWith) {
-      searchParams.append("startsWith", startingWith);
+    if(havingProperties) {
+      for(let property in havingProperties) {
+        searchParams.append(property.toString(), havingProperties[property]);
+      } 
     }
     
     let options = new RequestOptions({
           search: searchParams
-      });
+    });
     
     var obj = this.http.get(this.wordsURL, options)
                     .map(this.extractData)

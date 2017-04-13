@@ -1,17 +1,17 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { WordDataService } from "../../ksgapi-services/word.service";
-import { Word } from "../../../../../both/models/word.model";
-import template from "./word.component.html";
-import style from "./word.component.scss";
+import { WordDataService } from "../../../ksgapi-services/word.service";
+import { Word } from "../../../../../../both/models/word.model";
+import template from "./new-word.component.html";
+import style from "./new-word.component.scss";
 import { CompleterService, CompleterData, CompleterItem } from 'ng2-completer';
 
 @Component({
-  selector: "add-word",
+  selector: "new-word",
   template,
   styles: [ style ]
 })
-export class AddWordComponent implements OnInit {
+export class NewWordComponent implements OnInit {
   private searchData: Observable<Word[]>;
   private resultsFetched: Boolean;
   private dataService: CompleterData;
