@@ -12,13 +12,15 @@ import { CompleterService, CompleterData, CompleterItem } from 'ng2-completer';
   styles: [ style ]
 })
 export class NewCategoryComponent implements OnInit {
-  private data: Category;
+  private data: Observable<Category>;
+  private _data: Category;
   private searchData: Observable<Category[]>;
   private resultsFetched: Boolean;
   private dataService: CompleterData;
   private searchString: string;
   constructor(private categoryDataService: CategoryDataService, private completerService: CompleterService) {
     this.resultsFetched = false;
+    this.create();
     // initialize with observable
     this.dataService = this.completerService.local(this.searchData , 'spelling',  'spelling');
 
@@ -35,7 +37,11 @@ export class NewCategoryComponent implements OnInit {
   }
 
   create() {
-    this.categoryDataService.create(this.data);
+    this.data = this.categoryDataService.create();
+  }
+
+  update() {
+    this.categoryDataService.update(this._data);
   }
 
   selectedItem(selected : CompleterItem) {

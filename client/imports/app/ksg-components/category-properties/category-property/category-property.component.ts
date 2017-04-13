@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Observable } from "rxjs";
 import { CategoryPropertyDataService } from "../../../ksgapi-services/category-property.service";
 import { CategoryProperty } from "../../../../../../both/models/category-property.model";
@@ -11,7 +11,7 @@ import style from "./category-property.component.scss";
   styles: [ style ]
 })
 export class CategoryPropertyComponent implements OnInit {
-  id: string;
+  @Input() id: string;
   data: Observable<CategoryProperty>;
 
   constructor(private categoryPropertyDataService: CategoryPropertyDataService) {

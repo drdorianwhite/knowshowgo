@@ -39,13 +39,14 @@ export class CategoryDataService {
                     .catch(this.handleError);
   }
 
-  public create(data: Category): Observable<Category> {
+  public create(/*data: Category*/): Observable<Category> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     
-    delete data._id;
+    //if(!data) data = ;
+    //delete data._id;
     
-    return this.http.post(this.categoriesURL, JSON.stringify(data), options)
+    return this.http.post(this.categoriesURL, {}/*JSON.stringify(data)*/, options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

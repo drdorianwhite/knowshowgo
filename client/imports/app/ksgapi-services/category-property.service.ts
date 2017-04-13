@@ -25,13 +25,13 @@ export class CategoryPropertyDataService {
           search: searchParams
     });
     
-    return this.http.get(this.categoryPropertiesURL, options)
+    return this.http.get(CategoryPropertyDataService.categoryPropertiesURL, options)
                     .map(this.extractData)
                     .catch(this.handleError);
-  
+  }
 
   public read(id: string): Observable<CategoryProperty> {
-    let url = this.categoryPropertiesURL + "/" + id;
+    let url = CategoryPropertyDataService.categoryPropertiesURL + "/" + id;
     
     return this.http.get(url)
                     .map(this.extractData)
@@ -44,7 +44,7 @@ export class CategoryPropertyDataService {
     
     delete data._id;
     
-    return this.http.post(this.categoryPropertiesURL, JSON.stringify(data), options)
+    return this.http.post(CategoryPropertyDataService.categoryPropertiesURL, JSON.stringify(data), options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
@@ -53,7 +53,7 @@ export class CategoryPropertyDataService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.put(this.categoryPropertiesURL, JSON.stringify(data), options)
+    return this.http.put(CategoryPropertyDataService.categoryPropertiesURL, JSON.stringify(data), options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

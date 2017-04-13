@@ -12,13 +12,14 @@ import { CompleterService, CompleterData, CompleterItem } from 'ng2-completer';
   styles: [ style ]
 })
 export class NewCategoryPropertyComponent implements OnInit {
-  private data: CategoryProperty;
+  private data: Observable<CategoryProperty>;
   private searchData: Observable<CategoryProperty[]>;
   private resultsFetched: Boolean;
   private dataService: CompleterData;
   private searchString: string;
   constructor(private categoryPropertyDataService: CategoryPropertyDataService, private completerService: CompleterService) {
     this.resultsFetched = false;
+    this.create();
     // initialize with observable
     this.dataService = this.completerService.remote(CategoryPropertyDataService.categoryPropertiesURL , 'names.word.spelling',  'names.word.spelling');
   }
@@ -34,7 +35,7 @@ export class NewCategoryPropertyComponent implements OnInit {
   }
 
   create() {
-    this.categoryPropertyDataService.create(this.data);
+    this.data = this.categoryPropertyDataService.create(null);
   }
 
   selectedItem(selected : CompleterItem) {

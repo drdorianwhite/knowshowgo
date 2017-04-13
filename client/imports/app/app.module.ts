@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { HttpModule, JsonpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 import { WordComponent } from "./ksg-components/words/word/word.component";
 import { NewWordComponent } from "./ksg-components/words/new-word/new-word.component";
 import { WordListComponent } from "./ksg-components/words/word-list/word-list.component";
@@ -9,6 +10,7 @@ import { CategoryPropertyComponent } from "./ksg-components/category-properties/
 import { NewCategoryPropertyComponent } from "./ksg-components/category-properties/new-category-property/new-category-property.component";
 import { CategoryPropertyListComponent } from "./ksg-components/category-properties/category-property-list/category-property-list.component";
 import { CategoryComponent } from "./ksg-components/categories/category/category.component";
+import { CategoryMenuComponent } from "./ksg-components/categories/category/category-menu/category-menu.component";
 import { NewCategoryComponent } from "./ksg-components/categories/new-category/new-category.component";
 import { CategoryListComponent } from "./ksg-components/categories/category-list/category-list.component";
 import { Ng2CompleterModule } from "ng2-completer";
@@ -32,7 +34,8 @@ import { AccountsModule } from 'angular2-meteor-accounts-ui';
     CategoryPropertyListComponent,
     CategoryComponent,
     NewCategoryComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    CategoryMenuComponent
   ],
   // Entry Components
   entryComponents: [
@@ -53,7 +56,8 @@ import { AccountsModule } from 'angular2-meteor-accounts-ui';
     HttpModule,
     JsonpModule,
     AccountsModule,
-    Ng2CompleterModule
+    Ng2CompleterModule,
+    FormsModule
   ],
   // Main Component
   bootstrap: [ AppComponent ]

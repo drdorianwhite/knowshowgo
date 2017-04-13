@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input} from "@angular/core";
 import { Observable } from "rxjs";
 import { WordDataService } from "../../../ksgapi-services/word.service";
 import { Word } from "../../../../../../both/models/word.model";
@@ -11,7 +11,7 @@ import style from "./word-list.component.scss";
   styles: [ style ]
 })
 export class WordListComponent implements OnInit {
-  data: Observable<Word[]>;
+  @Input() data: Observable<Word[]>;
 
   constructor(private wordDataService: WordDataService) {
   }
